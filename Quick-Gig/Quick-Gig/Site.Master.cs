@@ -7,6 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using Quick_Gig.Code;
 
 namespace Quick_Gig
 {
@@ -69,7 +70,12 @@ namespace Quick_Gig
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Gather Industry List for Advanced Search
+            var industryList = Industry.GetIndustryList();
+            chckIndustry.DataSource = industryList;
+            chckIndustry.DataValueField = "industry_ID";
+            chckIndustry.DataTextField = "industry_Name";
+            chckIndustry.DataBind();
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

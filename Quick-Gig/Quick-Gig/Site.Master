@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - Quick Gig</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -56,8 +56,7 @@
 				<nav class="main">
 		    		<ul>
 				        <li class="search">
-					        <a class="fa-search" href="#search">Search</a>
-						    <input type="text" id="search" name="query" placeholder="Search" />
+					        <a class="fa-search" data-toggle="modal" href="#AdvancedModal">Search</a>
 					    </li>
 					    <li class="menu">
 					        <a class="fa-bars" href="#menu">Menu</a>
@@ -126,6 +125,70 @@
 			<script src="Content/template/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="Content/template/assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="Content/template/assets/js/main.js"></script>
+
+        <!-- Advanced Search -->
+	<div id="AdvancedModal" class="modal fade"  role="dialog"  data-backdrop="static">
+	<div class="vertical-alignment-helper">
+	<div class="modal-dialog modal-lg vertical-align-center">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title">Advanced Search</h3>
+			</div>
+			<div class="modal-body"> 
+				<section>
+
+					<h4>Filter By Industry <a class="pull-right btn btn-info btn-help" data-toggle="collapse" href="#industryDiv" aria-expanded="false" aria-controls="industryDiv"><i class="fa fa-arrow-circle-o-down fa-lg"></i></a></h4><hr />
+					<div class="collapse" id="industryDiv">
+						<asp:CheckBoxList ID="chckIndustry" runat="server"></asp:CheckBoxList>
+					</div>
+				</section>
+				<section>
+					<h4>Filter By Dates <a class="pull-right btn btn-info btn-help" data-toggle="collapse" href="#dateDiv" aria-expanded="false" aria-controls="dateDiv"><i class="fa fa-arrow-circle-o-down fa-lg"></i></a></h4><hr />
+				    <div class="collapse" id="dateDiv" style="padding-bottom:10px;">
+                        <div class="checkbox">
+                            <asp:CheckBox runat="server" ID="Newest" />
+                            <asp:Label runat="server" AssociatedControlID="Newest">Newest to Oldest</asp:Label>
+                        </div>
+                        <div class="checkbox">
+                            <asp:CheckBox runat="server" ID="Oldest" />
+                            <asp:Label runat="server" AssociatedControlID="Oldest">Oldest to Newest</asp:Label>
+                        </div>
+                    </div>
+                </section>
+				<section>
+					<h4>Filter By Distance <a class="pull-right btn btn-info btn-help" data-toggle="collapse" href="#distanceDiv" aria-expanded="false" aria-controls="distanceDiv"><i class="fa fa-arrow-circle-o-down fa-lg"></i></a></h4><hr />
+				    <div class="collapse" id="distanceDiv" style="padding-bottom:10px;">
+                            <div class="col-md-offset-0 col-md-10">
+                                <div class="checkbox">
+                                    <asp:CheckBox runat="server" ID="distance0" />
+                                    <asp:Label runat="server" AssociatedControlID="distance0">0 - 10 miles</asp:Label>
+                                </div>
+                            </div>
+                            <div class="col-md-offset-0 col-md-10">
+                                <div class="checkbox">
+                                    <asp:CheckBox runat="server" ID="distance10" />
+                                    <asp:Label runat="server" AssociatedControlID="distance10">10-25 miles</asp:Label>
+                                </div>
+                            </div>
+                            <div class="col-md-offset-0 col-md-10">
+                                <div class="checkbox">
+                                    <asp:CheckBox runat="server" ID="distance25" />
+                                    <asp:Label runat="server" AssociatedControlID="distance25">25+ miles</asp:Label>
+                                </div>
+                            </div>
+                    </div>
+                </section>
+			</div> <!-- /.modal-body -->
+			<div class="modal-footer">
+				<asp:Button id="SearchButton" Runat="server" CssClass="btn btn-primary pull-left" ValidationGroup="AgreeGroup" Text="Search Gigs"></asp:Button>
+				<asp:Button id="close" Runat="server" CssClass="btn btn-warning" data-dismiss="modal" Text="Close"></asp:Button>
+			</div>
+		</div> <!-- /.modal-content -->
+	</div> <!-- /.modal-dialog -->
+	</div>
+	</div> <!-- /#SearchModal.modal fade -->
+
     </form>
 </body>
 </html>
