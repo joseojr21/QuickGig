@@ -1,0 +1,131 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Quick_Gig.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form runat="server">
+        <div id="wrapper">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+            <!-- Header -->
+		    <header id="header">
+			    <h1><a href="#">Quick-Gig</a></h1>
+				<nav class="links">
+				    <ul>
+				        <li><a href="#">Home</a></li>
+					    <li><a href="#">Profile</a></li>
+					    <li><a href="#">My Connections</a></li>
+					    <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Find Help</a></li>
+				    </ul>
+				</nav>
+				<nav class="main">
+		    		<ul>
+				        <li class="search">
+					        <a class="fa-search" href="#search">Search</a>
+						    <input type="text" id="search" name="query" placeholder="Search" />
+					    </li>
+					    <li class="menu">
+					        <a class="fa-bars" href="#menu">Menu</a>
+					    </li>
+				    </ul>
+		        </nav>
+		    </header>
+            <!-- Menu -->
+			<section id="menu">
+			    <!-- Search -->
+			    <section>
+    			    <form class="search" method="get" action="#">
+	    			    <input type="text" name="query" placeholder="Search" />
+				    </form>
+			    </section>
+
+			    <!-- Links -->
+			    <section>
+	    		    <ul class="links">
+		    		    <li>
+						    <a href="#">
+						        <h3>Home</h3>
+						        <p></p>
+				    	    </a>
+					    </li>
+					    <li>
+			    		    <a href="#">
+							    <h3>Profile</h3>
+							    <p>Manage your profile, resumes, experience and skills.</p>
+					        </a>
+					    </li>
+					    <li>
+						    <a href="#">
+		    				    <h3>My Connections</h3>
+							    <p>Keep in touch with all your local connections</p>
+						    </a>
+					    </li>
+					    <li>
+						    <a href="#">
+							    <h3>Jobs</h3>
+							    <p>View available jobs in your local area or industry</p>
+						    </a>
+					    </li>
+                        <li>
+						    <a href="#">
+							    <h3>Find Help</h3>
+							    <p>View public profiles of professionals in your area to assist with your project. </p>
+						    </a>
+					    </li>
+				    </ul>
+			    </section>
+
+			    <!-- Actions -->
+			    <section>
+			        <ul class="actions vertical">
+			            <li><a href="#" class="button big fit">Log In</a></li>
+			        </ul>
+		        </section>
+            </section>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- Scripts -->
+			<script src="Content/template/assets/js/jquery.min.js"></script>
+			<script src="Content/template/assets/js/skel.min.js"></script>
+			<script src="Content/template/assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="Content/template/assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="Content/template/assets/js/main.js"></script>
+    </form>
+</body>
+</html>
